@@ -12,8 +12,10 @@ def read_nums(filename: str) -> List[int]:
 
 def find_nums(numbers: List[int], number_sum: int) -> Tuple[int, int]:
     "Finds two numbers in the list that add up to 2020."
-    for num1 in numbers:
-        for num2 in numbers:
+    for pos1, num1 in enumerate(numbers):
+        for pos2, num2 in enumerate(numbers):
+            if pos1 == pos2:
+                continue
             if num1 + num2 == number_sum:
                 return (num1, num2)
     raise Exception("Sum is not possible")

@@ -14,9 +14,10 @@ def find_nums(numbers: List[int], number_sum: int) -> Tuple[int, int]:
 
     Complexity: n log n
     """
-    for num1 in numbers:
+    for pos1, num1 in enumerate(numbers):
         sub = number_sum - num1
-        pos2 = bisect.bisect_left(numbers, sub)
+        # start searching at next position
+        pos2 = bisect.bisect_left(numbers, sub, pos1 + 1)
         if pos2 != len(numbers) and numbers[pos2] == sub:
             return (num1, numbers[pos2])
     raise Exception("Sum is not possible")

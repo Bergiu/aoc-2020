@@ -15,7 +15,7 @@ def find_nums(numbers: List[int], number_sum: int) -> Tuple[int, int]:
     """
     for pos in range(len(numbers)):
         num1 = numbers[pos]
-        for num2 in numbers[pos + 1::-1]:
+        for num2 in numbers[:pos:-1]:
             if num1 + num2 == number_sum:
                 return (num1, num2)
     raise Exception("Sum is not possible")
