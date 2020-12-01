@@ -1,26 +1,27 @@
-from typing import List
+from typing import List, Tuple
 
 
 def read_nums(filename: str) -> List[int]:
     "Reads all numbers in a file, split by new lines."
     numbers = []
-    with open(filename) as f:
-        for line in f:
+    with open(filename) as file:
+        for line in file:
             numbers.append(int(line))
     return numbers
 
 
-def find_nums(numbers: List[int]):
+def find_nums(numbers: List[int], number_sum: int) -> Tuple[int, int]:
     "Finds two numbers in the list that add up to 2020."
     for num1 in numbers:
         for num2 in numbers:
-            if num1 + num2 == 2020:
+            if num1 + num2 == number_sum:
                 return (num1, num2)
+    raise Exception("Sum is not possible")
 
 
 def main():
     numbers: List[int] = read_nums("input.txt")
-    num1, num2 = find_nums(numbers)
+    num1, num2 = find_nums(numbers, 2020)
     print(num1, num2)
     print(num1 * num2)
 
