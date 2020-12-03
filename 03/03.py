@@ -1,6 +1,7 @@
 from typing import List, Tuple
 import unittest
 from functools import reduce
+import math
 
 
 def count_trees(pattern: List[str], steps_right: int = 3, steps_down: int = 1):
@@ -11,8 +12,7 @@ def count_trees(pattern: List[str], steps_right: int = 3, steps_down: int = 1):
 
 
 def multiply(lines: List[str], traversal: List[Tuple[int, int]]) -> int:
-    counts = map(lambda tup: count_trees(lines, *tup), traversal)
-    return reduce(lambda x, y: x * y, counts)
+    return math.prod(map(lambda tup: count_trees(lines, *tup), traversal))
 
 
 def read_file(filename):
