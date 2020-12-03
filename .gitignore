@@ -3,3 +3,4 @@ input2.txt
 input_long.txt
 __pycache__
 *.out
+*.mod
