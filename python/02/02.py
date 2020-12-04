@@ -12,7 +12,7 @@ class PasswordPolicy:
 
     @classmethod
     def count_valid_passwords(cls, lines: List[str]) -> int:
-        return sum(filter(None, map(cls.check_password, lines)))
+        return sum(map(cls.check_password, lines))
 
     @classmethod
     def check_password_file(cls, filename: str) -> int:
