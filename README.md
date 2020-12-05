@@ -8,7 +8,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 2  | :heavy_check_mark: | :heavy_check_mark: | **Fortan 2008**; Python          |
 | Day 3  | :heavy_check_mark: | :heavy_check_mark: | **VIM**; Python                  |
 | Day 4  | :heavy_check_mark: | :heavy_check_mark: | **Bash/Regex**                   |
-| Day 5  | :heavy_check_mark: | :heavy_check_mark: | **Haskel**                       |
+| Day 5  | :heavy_check_mark: | :heavy_check_mark: | **Haskell**                      |
 | Day 6  |                    |                    |                                  |
 | Day 7  |                    |                    |                                  |
 | Day 8  |                    |                    |                                  |
