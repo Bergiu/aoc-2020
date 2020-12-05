@@ -6,7 +6,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | ------ | ------------------ | ------------------ | -------------------------------- |
 | Day 1  | :heavy_check_mark: | :heavy_check_mark: | **SQLite**; Fortran 2008; Python |
 | Day 2  | :heavy_check_mark: | :heavy_check_mark: | **Fortan 2008**; Python          |
-| Day 3  | :heavy_check_mark: | :heavy_check_mark: | **Python**                       |
+| Day 3  | :heavy_check_mark: | :heavy_check_mark: | **VIM**; Python                  |
 | Day 4  | :heavy_check_mark: | :heavy_check_mark: | **Bash/Regex**                   |
 | Day 5  |                    |                    |                                  |
 | Day 6  |                    |                    |                                  |
