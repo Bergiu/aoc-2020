@@ -1,0 +1,17 @@
+let counter = 0
+let tree_counter = 0
+
+" saves length of the line
+nmap ö $:let line_len = getpos('.')[2]<cr>
+
+"increase counter
+nmap ü :let counter = counter + 1<cr>
+
+" increase counter
+nmap ä :let tree_counter = tree_counter + (getline('.')[col('.') - 1] == '#')<cr>
+
+" goto next position
+nmap n :call setpos('.', [0, counter * step_down + 1, 1, 0])<cr>ö:call setpos('.', [0, counter * step_down + 1, (counter * step_right % line_len) + 1, 0])<cr>
+
+" eine iteration
+nmap N näü
