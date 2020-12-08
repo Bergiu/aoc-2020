@@ -1,9 +1,16 @@
 -module(parser).
 -export([read_input/1]).
--import(dependency, [ new_dependency/2, print_dependency/1 ]).
--import(color, [ new_color/2 ]).
 -import(lists, [append/2, nth/2, join/2, sublist/3, split/2]).
 -import(string, [sub_string/3, str/2, len/1, tokens/2, concat/2, to_integer/1]).
+
+
+%%%%%%% TYPES %%%%%%%
+new_dependency(Count, Color) ->
+    #{count => Count, color => Color}.
+
+new_color(Color, Dependencies) ->
+    {Color, Dependencies}.
+%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% HELPER %%%%%%%
 % concatenates a list of stings to one string
@@ -24,7 +31,7 @@ concat_list_range(List, From, Len) ->
 parse_dependency(Head) ->
     {Count, _Rest} = string:to_integer(lists:nth(1, Head)),
     Color = concat_list_range(Head, 2, 2),
-    dependency:new_dependency(Count, Color).
+    new_dependency(Count, Color).
 
 % parses all dependencies of one line into a list of dependency objects.
 % first overload handles the ["no", "other", "bags"] case.
@@ -42,7 +49,7 @@ parse_line(Line) ->
     Color = concat_list_range(Splitted, 1, 2),
     {_, Tail} = lists:split(4, Splitted),
     Dependencies = parse_dependencies(Tail),
-    color:new_color(Color, Dependencies).
+    new_color(Color, Dependencies).
 %%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% HANDLE FILE %%%%%%%
