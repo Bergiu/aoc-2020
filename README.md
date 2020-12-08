@@ -10,7 +10,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 4  | :heavy_check_mark: | :heavy_check_mark: | **Bash/Regex**                   |
 | Day 5  | :heavy_check_mark: | :heavy_check_mark: | **Haskell**                      |
 | Day 6  | :heavy_check_mark: | :heavy_check_mark: | **R**; Python                    |
-| Day 7  |                    |                    |                                  |
+| Day 7  | :heavy_check_mark: | :heavy_check_mark: | **Erlang**; Python               |
 | Day 8  |                    |                    |                                  |
 | Day 9  |                    |                    |                                  |
 | Day 10 |                    |                    |                                  |
