@@ -55,9 +55,9 @@ def _find_possible_parents(colors, bag, parents):
                 _find_possible_parents(colors, color, parents)
 
 
-def find_possible_parents(color, bag):
+def find_possible_parents(colors, bag):
     parent_colors = set()
-    _find_possible_parents(color, bag, parent_colors)
+    _find_possible_parents(colors, bag, parent_colors)
     return parent_colors
 
 

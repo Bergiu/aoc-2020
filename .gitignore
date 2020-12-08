@@ -1,4 +1,5 @@
 input.txt
+test_input.txt
 input2.txt
 input_long.txt
 __pycache__
@@ -7,3 +8,4 @@ __pycache__
 db.sqlite
 *.hi
 *.o
+*.beam
