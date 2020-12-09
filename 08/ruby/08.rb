@@ -1,3 +1,24 @@
+class InstructionStatus
+  attr_accessor :acc, :pos
+
+  def initialize(acc, pos)
+    @acc = acc
+    @pos = pos
+  end
+end
+
+
+class ProgramStatus
+  attr_accessor :terminated, :acc, :pos
+
+  def initialize(terminated, acc, pos)
+    @terminated = terminated
+    @acc = acc
+    @pos = pos
+  end
+end
+
+
 def parse_command(command)
   if command == "nop"
     :nop
@@ -7,16 +28,6 @@ def parse_command(command)
     :jmp
   else
     raise "Invalid Command"
-  end
-end
-
-
-class InstructionStatus
-  attr_accessor :acc, :pos
-
-  def initialize(acc, pos)
-    @acc = acc
-    @pos = pos
   end
 end
 
@@ -39,15 +50,13 @@ class Instruction
     Instruction.new @command, @number, @executed
   end
 
-  def is_jmp()
+  def is_jmp?()
     @command == :jmp
   end
-
-  def is_acc()
+  def is_acc?()
     @command == :acc
   end
-
-  def is_nop()
+  def is_nop?()
     @command == :nop
   end
 
@@ -56,26 +65,15 @@ class Instruction
       raise "Loop"
     end
     @executed = true
-    if self.is_acc
+    if self.is_acc?
       status.acc += @number
       status.pos += 1
-    elsif self.is_jmp
+    elsif self.is_jmp?
       status.pos += @number
     else
       status.pos += 1
     end
     status
-  end
-end
-
-
-class ProgramStatus
-  attr_accessor :terminated, :acc, :pos
-
-  def initialize(terminated, acc, pos)
-    @terminated = terminated
-    @acc = acc
-    @pos = pos
   end
 end
 
@@ -100,8 +98,8 @@ class Program
   def run()
     status = InstructionStatus.new(0, 0)
     begin
-      while status.pos >= 0 and status.pos < instructions.length
-        status = instructions[status.pos].run_instruction status
+      while status.pos >= 0 and status.pos < @instructions.length
+        status = @instructions[status.pos].run_instruction status
       end
       return ProgramStatus.new(true, status.acc, status.pos)
     rescue Exception => ex
@@ -124,11 +122,10 @@ class Bruteforce
     Bruteforce.new(instructions)
   end
 
-
-  def run()
+  def run!()
     length = @original_instructions.length
     while @change_pos < length
-      new_instructions = self.next_change
+      new_instructions = self.next_change!
       program = Program.new(new_instructions)
       status = program.run
       if status.terminated
@@ -137,16 +134,16 @@ class Bruteforce
     end
   end
 
-  def next_change()
+  def next_change!()
     @original_instructions[@change_pos..@original_instructions.length].each_with_index {
       |instruction, i|
-      if instruction.is_nop
+      if instruction.is_nop?
         @change_pos += i
         new_instructions = @original_instructions.map{|x| x.copy}  # deep copy
         new_instructions[@change_pos].command = :jmp
         @change_pos += 1
         return new_instructions
-      elsif instruction.is_jmp
+      elsif instruction.is_jmp?
         @change_pos += i
         new_instructions = @original_instructions.map{|x| x.copy}  # deep copy
         new_instructions[@change_pos].command = :nop
@@ -176,7 +173,7 @@ end
 def part2(filename)
   instruction_list = read_file(filename)
   bruteforce = Bruteforce.parse(instruction_list)
-  status = bruteforce.run
+  status = bruteforce.run!
   puts "Part 2:"
   puts status.acc
 end
