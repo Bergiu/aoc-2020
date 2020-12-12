@@ -13,8 +13,8 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 7  | :heavy_check_mark: | :heavy_check_mark: | **Erlang**; Python               |
 | Day 8  | :heavy_check_mark: | :heavy_check_mark: | **Ruby**; Python                 |
 | Day 9  | :heavy_check_mark: | :heavy_check_mark: | **Lisp**; Python                 |
-| Day 10 |                    |                    |                                  |
-| Day 11 |                    |                    |                                  |
+| Day 10 | :heavy_check_mark: | (Python)           | **Forth**; Python                |
+| Day 11 | :heavy_check_mark: | :heavy_check_mark: | **Go**; Python                   |
 | Day 12 |                    |                    |                                  |
 | Day 13 |                    |                    |                                  |
 | Day 14 |                    |                    |                                  |
