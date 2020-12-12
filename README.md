@@ -15,7 +15,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 9  | :heavy_check_mark: | :heavy_check_mark: | **Lisp**; Python                 |
 | Day 10 | :heavy_check_mark: | (Python)           | **Forth**; Python                |
 | Day 11 | :heavy_check_mark: | :heavy_check_mark: | **Go**; Python                   |
-| Day 12 |                    |                    |                                  |
+| Day 12 | :heavy_check_mark: | :heavy_check_mark: | **KTurtle**                      |
 | Day 13 |                    |                    |                                  |
 | Day 14 |                    |                    |                                  |
 | Day 15 |                    |                    |                                  |
