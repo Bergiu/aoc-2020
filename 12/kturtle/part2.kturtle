@@ -1,0 +1,91 @@
+reset
+canvassize 80000, 60000
+penwidth 100
+fontsize 1000
+go 35000, 1000
+direction 90
+
+learn pprint $text {
+  $lastdir = getdirection
+  direction 0
+  print $text
+  direction $lastdir
+}
+
+$part = 2
+$wp_x = 10  # West - East
+$wp_y = -1 # North - South
+
+$startx = getx
+$starty = gety
+
+learn abs $x {
+  if $x < 0 {
+    return -1 * $x
+  }
+  return $x
+}
+
+learn manhattandistance {
+  $x = abs (getx-$startx)
+  $y = abs (gety-$starty)
+  message ($x + $y)
+}
+learn godir_if_pos $amount, $dir {
+  if $amount > 0 {
+      $lastdir = getdirection
+      direction $dir
+      forward $amount
+      direction $lastdir
+  }
+}
+
+# moves relative to the waypoint
+learn F $amount {
+  godir_if_pos -1*$wp_x*$amount, 0
+  godir_if_pos $wp_y*$amount, 90
+  godir_if_pos $wp_x*$amount, 180
+  godir_if_pos -1*$wp_y*$amount, 270
+}
+
+# transforms waypoint position
+learn N $amount {
+  $wp_y = $wp_y - $amount
+}
+learn S $amount {
+  $wp_y = $wp_y + $amount
+}
+learn E $amount {
+  $wp_x = $wp_x + $amount
+}
+learn W $amount {
+  $wp_x = $wp_x - $amount
+}
+
+# rotates the position of the waypoint
+learn rot_coords_l {
+    $tmp = $wp_x
+    $wp_x = $wp_y
+    $wp_y = -1*$tmp
+}
+
+learn rot_coords_r {
+    $tmp = $wp_x
+    $wp_x = -1*$wp_y
+    $wp_y = $tmp
+}
+
+# VALID DEGREES: 0 90 180 270
+learn L $degrees {
+    repeat $degrees / 90 {
+        rot_coords_l
+    }
+}
+
+learn R $degrees {
+    repeat $degrees / 90 {
+        rot_coords_r
+    }
+}
+
+pprint "Start"
