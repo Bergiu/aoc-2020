@@ -196,14 +196,59 @@ variable nums len-num cells allot
   loop
 ;
 
+2variable cache-var 1000 cells allot
+: cache cells nums + ;
+
+: len-cache ( -- n )
+    170 3 + 1 +
+;
+
+: print-cache
+  len-cache 0 do
+    i 2 * cache 2@ d.
+  loop
+;
+
+: init-cache ( -- )
+  len-cache 0 do
+    0. i 2 * cache 2!
+  loop
+  1. len-cache 2 * cache 2!
+;
+
+: count-combinations ( -- n )
+  init-cache
+  len-num 0 do
+    len-num i - nums @
+    3 - 2 * cache 2@ ( x + 3 )
+    len-num i - nums @
+    2 - 2 * cache 2@ ( x + 2 )
+    len-num i - nums @
+    1 - 2 * cache 2@ ( x + 1 )
+    d+ d+ ( cache[x+1] + cache[x+1] + cache[x+1] )
+    len-num i - 2 * cache 2!
+  loop
+  print-cache
+  0 cache 2@
+;
+
 : part1
   .( Part 1: ) cr
-  103 prepare-num
   count-differences
   * .
 ;
 
-: main part1 ;
+: part2
+  .( Part 2: ) cr
+  count-combinations
+  * d.
+;
+
+: main
+  103 prepare-num
+  part1
+  part2
+;
 
 main
 
