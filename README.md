@@ -16,7 +16,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 10 | :heavy_check_mark: | (Python)           | **Forth**; Python                |
 | Day 11 | :heavy_check_mark: | :heavy_check_mark: | **Go**; Python                   |
 | Day 12 | :heavy_check_mark: | :heavy_check_mark: | **KTurtle**                      |
-| Day 13 |                    |                    |                                  |
+| Day 13 | :heavy_check_mark: | :heavy_check_mark: | **Lua**                          |
 | Day 14 |                    |                    |                                  |
 | Day 15 |                    |                    |                                  |
 | Day 16 |                    |                    |                                  |
