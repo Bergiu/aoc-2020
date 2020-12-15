@@ -17,7 +17,7 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 11 | :heavy_check_mark: | :heavy_check_mark: | **Go**; Python                   |
 | Day 12 | :heavy_check_mark: | :heavy_check_mark: | **KTurtle**                      |
 | Day 13 | :heavy_check_mark: | :heavy_check_mark: | **Lua**; Python                  |
-| Day 14 |                    |                    |                                  |
+| Day 14 | :heavy_check_mark: |                    | **Elixir**                       |
 | Day 15 |                    |                    |                                  |
 | Day 16 |                    |                    |                                  |
 | Day 17 |                    |                    |                                  |
