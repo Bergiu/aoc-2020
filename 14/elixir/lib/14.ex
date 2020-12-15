@@ -1,22 +1,5 @@
-# defmodule BitmaskCalculatorV2 do
-#   import ParallelTask
-#   defp single_proc([mask|mems]) do
-#     IO.puts(mask[:mask])
-#     mem_sum = 0
-#     for mem <- mems, do: IO.inspect(Integer.to_string(mem[:val], 2))
-#   end
-#   defp _process([], _) do
-#     ParallelTask.new
-#   end
-#   defp _process([group|groups], i) do
-#     _process(groups, i+1) |> ParallelTask.add(i, fn -> single_proc(group) end)
-#   end
-#   def process(groups) do
-#     IO.inspect(_process(groups, 0) |> ParallelTask.perform)
-#   end
-# end
-
 defmodule BitmaskCalculator do
+  import ParallelTask
   import Bitwise
   defp _get_x_mask(["X"]),      do: "1"
   defp _get_x_mask(["X"|mask]), do: "1" <> _get_x_mask(mask)
@@ -51,9 +34,7 @@ defmodule BitmaskCalculator do
     Map.merge(map, %{mem.mem => calculate(mask.mask, mem.val)})
     # für alle weiteren überschreiben
   end
-  defp _process([group]) do
-    single_proc(group)
-  end
+
   defp _sum([{_,value}]) do
     value
   end
@@ -62,6 +43,10 @@ defmodule BitmaskCalculator do
   end
   defp sum(results) do
     Map.to_list(results) |> _sum
+  end
+
+  defp _process([group]) do
+    single_proc(group)
   end
   defp _process([group|groups]) do
     later_result = _process(groups)
@@ -80,14 +65,28 @@ defmodule Day14 do
     groups = Parser.read_file(filename) # automatically includes Parser
     BitmaskCalculator.process(groups)
   end
-  def part2 do
-    IO.puts "Part 2"
-  end
   def main do
     part1("input.txt")
-    part2()
   end
 end
 
 Day14.main()
+
+defmodule BitmaskCalculatorV2 do
+  import ParallelTask
+  defp single_proc([mask|mems]) do
+    IO.puts(mask[:mask])
+    mem_sum = 0
+    for mem <- mems, do: IO.inspect(Integer.to_string(mem[:val], 2))
+  end
+  defp _process([], _) do
+    ParallelTask.new
+  end
+  defp _process([group|groups], i) do
+    _process(groups, i+1) |> ParallelTask.add(i, fn -> single_proc(group) end)
+  end
+  def process(groups) do
+    IO.inspect(_process(groups, 0) |> ParallelTask.perform)
+  end
+end
 
