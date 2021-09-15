@@ -1,4 +1,4 @@
-Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
+Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache im Advent of Code zu nutzen.
 
 # aoc-2020
 
@@ -28,3 +28,6 @@ Ich versuche ab heute, dem 04.12. jeden Tag eine neue Sprache zu nutzen.
 | Day 22 |                    |                    |                                  |
 | Day 23 |                    |                    |                                  |
 | Day 24 |                    |                    |                                  |
+
+# Fazit
+Ab Tag 14 war es mir zu anstrengend und zeitintensiv und ich habe aufgehört.
